@@ -25,6 +25,7 @@ class TestImports:
             "verifiers[browser]",  # browser extra
             "verifiers[ta]",  # textarena extra
             "verifiers[rg]",  # reasoning-gym extra
+            "verifiers[pz]",  # pettingzoo extra
         ]
         return any(pattern in error_msg for pattern in optional_dependency_patterns)
 

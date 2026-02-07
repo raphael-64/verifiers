@@ -49,6 +49,7 @@ dependencies = [
     "gepa",
     "pyzmq>=27.1.0",
     "msgpack>=1.1.2",
+    "pettingzoo>=1.25.0",
 ]
 
 [dependency-groups]
@@ -69,6 +70,7 @@ dev = [
     "aiohttp>=3.9.0",
     "python-dotenv>=1.0.0",
     "nltk",
+    "verifiers[pz]",
 ]
 
 [project.optional-dependencies]
@@ -86,6 +88,9 @@ browser = [
     "stagehand>=3.0.0",
     "aiohttp>=3.9.0",
     "python-dotenv>=1.0.0",
+]
+pz = [
+    "pettingzoo",
 ]
 rl = [
     "torch>=2.8.0,<2.9.0",
@@ -105,6 +110,9 @@ flash-attn = [{ requirement = "torch", match-runtime = true }]
 
 [tool.uv.extra-build-variables]
 flash-attn = { FLASH_ATTENTION_SKIP_CUDA_BUILD = "TRUE" }
+
+[tool.uv.sources]
+verifiers = { workspace = true }
 
 [project.scripts]
 vf-eval = "verifiers.scripts.eval:main"
